@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <div>
+      <p>{{car.brand}}</p>
+      <p>{{tag}}</p>
+      <!-- <p v-text="msg" title="哈哈"></p> -->
+      <div v-html="tag"></div>
+      <div v-text="car.brand"></div>
+      <input type="text" v-model="msg">
+      <button v-on:click="btn">按钮</button>
+      <!-- <p v-aa="msg"></p> -->
+    </div>
+  </div>
+  <script src="./src/compile.js"></script>
+  <script src="./src/vue.js"></script>
+  <script>
+    // 在vue中el不仅仅可以传一个选择器，还可以传一个DOM对象
+    // let app = document.getElementById('app') el:app
+    const vm = new Vue({
+      el:'#app',
+      data:{
+         msg:'hello vue',
+         tag:'<h1>哈哈</h1>',
+         car: {
+           brand:'大众',
+           color:'yellow'
+         }
+      },
+      methods: {
+        btn(){
+          console.log(this)
+        }
+      }
+    })
+    console.log(vm)
+  </script>
+</body>
+</html>
